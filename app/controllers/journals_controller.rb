@@ -12,7 +12,7 @@ class JournalsController < ApplicationController
   end
   
   def create 
-    @journal = Journal.create(journal_params)
+    @journal = Journal.new(journal_params)
 
 
     if @journal.save
