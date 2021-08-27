@@ -7,4 +7,5 @@
   <%= f.select :category_id, Category.all.map {|c|[c.name, c.id]} %>
 
   <%= f.submit %>
+  <%= link_to "Back", journals_path %>
 <% end  %>
