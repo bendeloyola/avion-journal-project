@@ -1,9 +1,12 @@
-<h1>Journals show</h1>
-<h3><%= @journal.title %></h3>
-<h1>Category: <%= @journal.category.name %></h1>
-<p><%= @journal.content %></p>
+
+<div class="container-fluid mt-3">
+ 
+  <h1>Category: <%= @journal.category.name %></h1>
+   <h3><%= @journal.title %></h3>
+  <p><%= @journal.content %></p>
+</div>
 
 
-<%= link_to "Edit", edit_journal_path(@journal.id) %>
-<%= link_to "Delete", journal_path(@journal.id), method: :delete %>
-<%= link_to "Back", journals_path %>
+<%= link_to "Edit", edit_journal_path(@journal.id), class: 'btn btn-primary' %>
+<%= link_to "Delete", journal_path(@journal.id), method: :delete, class: 'btn btn-danger' %>
+<%= link_to "Back", journals_path, class: 'btn btn-secondary' %>
