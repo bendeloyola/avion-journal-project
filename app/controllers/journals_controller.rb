@@ -1,6 +1,14 @@
 class JournalsController < ApplicationController
   def index
-    @journals = Journal.all
+    @categories = Category.all 
+
+    cate = params[:cate]
+
+    if !cate.nil?
+      @journals = Journal.where(:category_id => cate)
+    else
+      @journals = Journal.all
+    end
   end
 
   def show

@@ -13,6 +13,10 @@
       </div>
     </div>
     <% end %>
+    
+    <% @categories.each do |category| %>
+      <%= link_to category.name, journals_path(:cate => category.id) %>
+    <% end %>
   </div>
 </div>
 
