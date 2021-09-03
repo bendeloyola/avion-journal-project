@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  
   # get 'categories/index'
   # get 'categories/show'
   # get 'categories/edit'
@@ -7,6 +7,16 @@ Rails.application.routes.draw do
   # get 'journals/show'
   # get 'journals/new'
   # get 'journals/edit'
+
+  # root to: 'users/sign_in'
+
+  
+
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
+
+  devise_for :users
 
   resources :journals
   resources :categories
