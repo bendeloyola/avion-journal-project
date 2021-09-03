@@ -3,6 +3,7 @@
   <%= f.text_field :name%>
   <%= f.label :description%>
   <%= f.text_area :description%>
+   <%= f.number_field :user_id, id: :category_user_id, value: current_user.id, type: :hidden%>
 
   <%= f.submit %>
   <%= link_to "Back", categories_path, class: 'btn btn-outline-secondary' %>

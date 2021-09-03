@@ -23,6 +23,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-md-auto mb-2 mb-lg-0">
+         
             <li class="nav-item p-2">
               <%= link_to "Create Journal", new_journal_path, class: 'nav-link btn btn-outline-success' %>
             </li>
@@ -37,6 +38,8 @@
         </div>
       </div>
     </nav>
+    <p class="notice"><%= notice %></p> 
+    <p class="alert"><%= alert %></p>
     <% else %>
       <p class="notice"><%= notice %></p> 
       <p class="alert"><%= alert %></p>

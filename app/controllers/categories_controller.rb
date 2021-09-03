@@ -1,6 +1,10 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  
+
   def index
-    @categories = Category.all
+    @categories = current_user.categories
   end
 
   def show
@@ -8,11 +12,11 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @category = Category.new
+    @category = current_user.categories.new
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = current_user.categories.new(category_params)
 
 
     if @category.save
@@ -43,9 +47,14 @@ class CategoriesController < ApplicationController
     redirect_to @category
   end
 
+  def correct_user
+    @category = current_user.categories.find_by(id: params[:id])
+    redirect_to category_path, notice: "Not Authorize" if @category.nil?
+  end  
+
   private 
 
   def category_params
-    params.require(:category).permit(:name, :description)
+    params.require(:category).permit(:name, :description, :user_id)
   end
 end
