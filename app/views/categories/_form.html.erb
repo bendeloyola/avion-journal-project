@@ -1,10 +1,24 @@
-<%= form_with model: @category, local: true do |f|%>
-  <%= f.label :name%>
-  <%= f.text_field :name%>
-  <%= f.label :description%>
-  <%= f.text_area :description%>
-   <%= f.number_field :user_id, id: :category_user_id, value: current_user.id, type: :hidden%>
+<div class="flex-row d-flex justify-content-center">
 
-  <%= f.submit %>
-  <%= link_to "Back", categories_path, class: 'btn btn-outline-secondary' %>
-<% end  %>
+  <div class="col-md-8">
+    <div class="card mt-5">
+      <div class="card-body">
+        <h1 style="text-align:center; color: blue;">Category new</h1>
+        <%= form_with model: @category, local: true do |f|%>
+        <div class="form-group mb-3">
+          <%= f.label :name%>
+          <%= f.text_field :name, class: 'form-control'%>
+        </div>
+        <div class="form-group mb-3">
+          <%= f.label :description%>
+          <%= f.text_area :description, class: 'form-control'%>
+        </div>
+        <div class="form-group mb-3">
+          <%= f.number_field :user_id, id: :category_user_id, value: current_user.id, type: :hidden, class: 'form-control'%>
+        </div>
+          <%= f.submit "Create Category", class: 'btn btn-outline-primary'%>
+          <%= link_to "Back", categories_path, class: 'btn btn-outline-secondary' %>
+        <% end  %>
+    </div>
+  </div>
+</div>
